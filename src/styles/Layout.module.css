@@ -1,0 +1,158 @@
+.list{
+    background-color: white;
+
+    width: 70%;
+    min-width: 300px;
+
+    padding: 20px;
+}
+
+.listDiv{
+    width: 100%;
+}
+
+/* Title */
+
+.title{
+    margin-bottom: 15px;
+
+    color: rgb(36, 36, 36);
+}
+
+.title hr{
+    height: 2px;
+
+    background: rgb(36, 36, 36);
+}
+
+
+/* Td Head */
+
+.thead{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    background-image: radial-gradient(circle at 4.55% 104.17%, #56bef8 0, #55a6d8 50%, #528fb9 100%);
+    width: 100%;
+
+    display: flex;
+    
+    color: white;
+}
+
+.thead tr{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    padding: 10px 10px;
+}
+
+/* Td Body */
+
+.tbody{
+    width: 100%;
+
+    display: block;
+}
+
+.tbody tr{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 10px;
+}
+
+/* Td Icons */
+
+.TdIcons {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    text-align: center;
+}
+
+.TdIcons i{
+    font-size: 18px;
+}
+
+.TdIcons button {
+    background: none;
+
+    border-radius: 50%;
+}
+
+.TdIcons i:hover{
+    color: #329cdf;
+}
+
+.bgPar {
+    background-color: #55a6d883;
+}
+.bgImpar {
+    background-color: #55a6d833;
+}
+
+/* Button */
+.button {
+    width: 150px;
+    height: 50px;
+
+    margin-bottom: 15px;
+
+    border-radius: 10px;
+
+    background-color: rgb(16, 170, 16);
+
+    color: white;
+}
+
+.button:hover {
+    filter: brightness(.9)
+}
+
+/* Form */
+.containerForm {
+    border-radius: 5px;
+    border: 1px solid rgb(160, 160, 160);
+}
+
+.containerForm section {
+    display: flex;
+    justify-content: flex-end;
+
+    padding-right: 16px;
+
+    gap: 40px;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    
+    padding: 15px;
+}
+
+.input input{
+    width: 100%;
+
+    padding: 8px;
+    
+    border-radius: 7px;
+    border: 1px solid #2983bb;
+
+    margin-top: 5px;
+}
+
+.salvar{
+    background-color: rgb(40, 40, 151);
+}
+
+.cancelar{
+    background-color: rgb(177, 6, 6);
+}

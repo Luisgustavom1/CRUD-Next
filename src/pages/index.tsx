@@ -1,61 +1,37 @@
+import { useEffect, useState } from 'react';
+
 import Layout from '../components/layout'
 import Table from '../components/table'
 import Client from '../core/Cliente'
 
 import homeStyle from '../styles/Home.module.css'
 
-import { useEffect, useState } from 'react';
-
 import Script from 'next/script';
 import Button from '../components/button';
 import Form from '../components/form';
 
-import ClienteRepositorio from '../core/ClienteRepositorio';
-import ColecaoCliente from '../backend/db/ColecaoCliente'
+import useVisible from '../hooks/useVisible';
+import useClients from '../hooks/useClients';
 
 export default function Home() {  
+  
+  const { 
+    savedClient, 
+    newClient, 
+    clienteSelecionado, 
+    clienteExcluido, 
+    clients, 
+    client,
+    mostrarTable,
+    tableVisible
+  } = useClients()
 
-  const repo: ClienteRepositorio = new ColecaoCliente()
-
-  const [client, setClient] = useState<Client>(Client.vazio())
-  const [clients, setClients] = useState<Client[]>([])
-  const [visible, setVisible] = useState<'table' | 'form'>('table')
-
-  useEffect(() => {
-    obterTodos()
-  }, [])
-
-  function obterTodos(): void{
-    repo.allClients().then(clients => {
-      setClients(clients)
-      setVisible('table')
-    })
-  }
-
-  function clienteSelecionado(client: Client): void {
-    setClient(client)
-    setVisible('form')
-  }
-
-  function clienteExcluido(client: Client): void {
-    console.log(client.nome);
-  }
-
-  function newClient(): void {
-    setClient(Client.vazio())
-    setVisible('form')
-  }
-
-  function savedClient(client: Client): void {
-    repo.salvar(client)
-    setVisible('table')
-  }
   return (
     <>
       <div className={homeStyle.container}>
         <Layout title='Cadastro de Clientes'>
             {
-              visible === 'table' ? 
+              tableVisible ? 
               <>
                 <div className={homeStyle.containerDiv}>
                   <Button onClick={newClient}>
@@ -69,7 +45,7 @@ export default function Home() {
                 /> 
               </> : 
               <Form 
-                cancel={() => setVisible('table')}
+                cancel={() => mostrarTable()}
                 changedClient={savedClient}
                 client={client}
               />
